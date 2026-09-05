@@ -1,9 +1,10 @@
 name: Weekly SPFL Stats Update
 
 # Runs every Monday at 07:00 UTC, after the weekend's Scottish Premiership
-# fixtures are complete. Pulls new results from TheSportsDB, rebuilds
-# team_stats.csv, and commits the change, printing the latest power-ranking
-# scorecard to the run log.
+# fixtures are complete, and again isn't needed for the Pages site to show
+# fresh data — GitHub Pages serves whatever is committed to main, so this
+# job just needs to keep results.csv, team_stats.csv, fixtures.csv and
+# odds.json current.
 on:
   schedule:
     - cron: "0 7 * * 1"
@@ -30,13 +31,21 @@ jobs:
       - name: Rebuild team_stats.csv
         run: node scripts/build_team_stats.js results.csv team_stats.csv
 
+      - name: Build next-gameweek fixtures.csv
+        run: node scripts/build_fixtures.js fixtures.csv
+
+      - name: Fetch bookmaker odds (requires ODDS_API_KEY secret)
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: node scripts/fetch_odds.js odds.json
+
       - name: Show updated power rankings
         run: node spfl_predictor.js team_stats.csv --scorecard
 
-      - name: Commit updated stats
+      - name: Commit updated data
         run: |
           git config user.name "spfl-predictor-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add results.csv team_stats.csv
-          git diff --staged --quiet || git commit -m "Weekly stats update: $(date -u +'%Y-%m-%d')"
+          git add results.csv team_stats.csv fixtures.csv odds.json
+          git diff --staged --quiet || git commit -m "Weekly stats/fixtures/odds update: $(date -u +'%Y-%m-%d')"
           git push

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SPFL 2026/27 Predictor Scorecard</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --card: #171a21;
+    --border: #2a2e38;
+    --text: #e7e9ee;
+    --muted: #9aa1ac;
+    --accent: #6ee7b7;
+    --warn: #f59e0b;
+    --danger: #f87171;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 32px 20px 60px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+  #meta {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    margin-bottom: 18px;
+    color: var(--accent);
+  }
+  #status { color: var(--warn); font-size: 14px; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th {
+    text-align: left;
+    color: var(--muted);
+    font-weight: 600;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 10px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .fixture-cell strong { color: var(--text); }
+  .score-cell {
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .score-cell .prob {
+    display: block;
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .odds-val { display: block; font-weight: 600; }
+  .implied { display: block; font-size: 11px; color: var(--muted); }
+  .implied.edge-model-higher { color: var(--accent); }
+  .implied.edge-model-lower { color: var(--danger); }
+  .legend {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .legend span { display: inline-flex; align-items: center; margin-right: 16px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; display: inline-block; }
+  .dot.accent { background: var(--accent); }
+  .dot.danger { background: var(--danger); }
+  footer { margin-top: 30px; color: var(--muted); font-size: 12px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>SPFL 2026/27 Predictor Scorecard</h1>
+    <div class="sub">Model output for the next unplayed Scottish Premiership gameweek, cross-checked against live bookmaker prices.</div>
+    <div id="meta">Loading fixtures…</div>
+    <div id="status"></div>
+    <table id="fixtures-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Fixture</th>
+          <th>Predicted score</th>
+          <th>Model Home</th>
+          <th>Model Draw</th>
+          <th>Model Away</th>
+          <th>Odds Home<br/>(implied)</th>
+          <th>Odds Draw<br/>(implied)</th>
+          <th>Odds Away<br/>(implied)</th>
+          <th>Bookmaker</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="legend">
+      <span><span class="dot accent"></span>Model probability notably higher than market implied — possible value on that outcome</span>
+      <span><span class="dot danger"></span>Model probability notably lower than market implied — possible market overpricing that side</span>
+    </div>
+    <footer>
+      Generated from <code>team_stats.csv</code>, <code>fixtures.csv</code> and <code>odds.json</code> in this repo.
+      Data updates weekly via GitHub Actions. See <a href="README.md">README.md</a> for the full methodology.
+    </footer>
+  </div>
+
+  <script src="predictor-browser.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
