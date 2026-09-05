@@ -1,8 +1,9 @@
 name: Weekly SPFL Stats Update
 
 # Runs every Monday at 07:00 UTC, after the weekend's Scottish Premiership
-# fixtures are complete. Rebuilds team_stats.csv from results.csv and commits
-# the change, then prints the latest power-ranking scorecard to the run log.
+# fixtures are complete. Pulls new results from TheSportsDB, rebuilds
+# team_stats.csv, and commits the change, printing the latest power-ranking
+# scorecard to the run log.
 on:
   schedule:
     - cron: "0 7 * * 1"
@@ -23,18 +24,8 @@ jobs:
         with:
           node-version: "20"
 
-      # --- Optional: fetch this week's results automatically ---
-      # Replace this step with a call to whichever source you're already
-      # using for live scores (ESPN, TheSportsDB, football-data.org). It
-      # should append newly completed fixtures to results.csv in the format:
-      #   Date,HomeTeam,AwayTeam,HomeGoals,AwayGoals
-      # Until that's wired up, append new results to results.csv manually
-      # before this workflow runs, or right in this step via a small script.
-      - name: Fetch latest results (placeholder — wire up your existing API)
-        run: |
-          echo "TODO: call your results-fetching script here, e.g.:"
-          echo "  node scripts/fetch_results.js results.csv"
-          echo "Skipping for now — using results.csv as committed."
+      - name: Fetch latest results from TheSportsDB
+        run: node scripts/fetch_results.js results.csv
 
       - name: Rebuild team_stats.csv
         run: node scripts/build_team_stats.js results.csv team_stats.csv
@@ -46,6 +37,6 @@ jobs:
         run: |
           git config user.name "spfl-predictor-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add team_stats.csv
+          git add results.csv team_stats.csv
           git diff --staged --quiet || git commit -m "Weekly stats update: $(date -u +'%Y-%m-%d')"
           git push
