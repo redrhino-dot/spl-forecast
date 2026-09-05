@@ -51,19 +51,30 @@ function impliedPct(decimalOdds) {
   return Math.round((1 / decimalOdds) * 1000) / 10;
 }
 
-function edgeClass(modelPct, marketPct) {
-  if (modelPct == null || marketPct == null) return "";
-  const diff = modelPct - marketPct;
-  if (Math.abs(diff) < 6) return "";
-  return diff > 0 ? "edge-model-higher" : "edge-model-lower";
+// Underdog value flag: only fires when (a) the market already prices this
+// outcome as a genuine underdog (decimal odds >= UNDERDOG_ODDS_THRESHOLD,
+// i.e. market implied probability below ~40%), AND (b) the model rates
+// that same outcome meaningfully more likely than the market does. This is
+// the only signal a professional would actually consider staking on —
+// a model liking an already-short favorite a little more than the market
+// isn't an edge, it's noise.
+const UNDERDOG_ODDS_THRESHOLD = 2.5;
+const MIN_EDGE_PCT = 6;
+
+function underdogEdge(oddsVal, modelPct, marketPct) {
+  if (!oddsVal || modelPct == null || marketPct == null) return false;
+  if (oddsVal < UNDERDOG_ODDS_THRESHOLD) return false;
+  return modelPct - marketPct >= MIN_EDGE_PCT;
 }
 
 function renderCell(oddsVal, modelPct) {
   const implied = impliedPct(oddsVal);
   const oddsStr = oddsVal ? oddsVal.toFixed(2) : "—";
   const impliedStr = implied != null ? `${implied}%` : "—";
-  const cls = edgeClass(modelPct, implied);
-  return `<span class="odds-val">${oddsStr}</span><span class="implied ${cls}">${impliedStr}</span>`;
+  const hasEdge = underdogEdge(oddsVal, modelPct, implied);
+  const cls = hasEdge ? "value-underdog" : "";
+  const flag = hasEdge ? ' <span class="value-tag">VALUE</span>' : "";
+  return `<span class="odds-val">${oddsStr}</span><span class="implied ${cls}">${impliedStr}${flag}</span>`;
 }
 
 async function main() {
