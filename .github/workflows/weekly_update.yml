@@ -1,13 +1,14 @@
-name: Weekly SPFL Stats Update
+name: Daily SPFL Stats Update
 
-# Runs every Monday at 07:00 UTC, after the weekend's Scottish Premiership
-# fixtures are complete, and again isn't needed for the Pages site to show
-# fresh data — GitHub Pages serves whatever is committed to main, so this
-# job just needs to keep results.csv, team_stats.csv, fixtures.csv and
-# odds.json current.
+# Runs once a day at 06:00 UTC. Pulls every round individually via
+# eventsround.php (eventsseason.php on the free/registered key only
+# returns a preview), rebuilds results.csv/team_stats.csv/fixtures.csv,
+# refreshes odds, and commits whatever actually changed. Running daily
+# (not just Monday) means a gameweek's results land the same day
+# TheSportsDB posts them, instead of waiting up to a week.
 on:
   schedule:
-    - cron: "0 7 * * 1"
+    - cron: "0 6 * * *"
   workflow_dispatch: {} # allows manual "Run workflow" trigger from the Actions tab
 
 permissions:
@@ -25,14 +26,16 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Fetch latest results from TheSportsDB
-        run: node scripts/fetch_results.js results.csv
+      - name: Pull all rounds from TheSportsDB
+        env:
+          THESPORTSDB_KEY: ${{ secrets.THESPORTSDB_KEY }}
+        run: node scripts/fetch_all_rounds.js data/all_events.json
+
+      - name: Derive results.csv and fixtures.csv
+        run: node scripts/derive_results_fixtures.js data/all_events.json results.csv fixtures.csv
 
       - name: Rebuild team_stats.csv
         run: node scripts/build_team_stats.js results.csv team_stats.csv
-
-      - name: Build next-gameweek fixtures.csv
-        run: node scripts/build_fixtures.js fixtures.csv
 
       - name: Fetch bookmaker odds (requires ODDS_API_KEY secret)
         env:
@@ -46,6 +49,6 @@ jobs:
         run: |
           git config user.name "spfl-predictor-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add results.csv team_stats.csv fixtures.csv odds.json
-          git diff --staged --quiet || git commit -m "Weekly stats/fixtures/odds update: $(date -u +'%Y-%m-%d')"
+          git add data/all_events.json results.csv team_stats.csv fixtures.csv odds.json
+          git diff --staged --quiet || git commit -m "Daily stats/fixtures/odds update: $(date -u +'%Y-%m-%d %H:%M')"
           git push
