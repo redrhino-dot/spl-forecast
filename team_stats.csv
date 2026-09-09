@@ -1,13 +1,13 @@
 Team,MP,W,D,L,GF,GA,HomeW,HomeD,HomeL,AwayW,AwayD,AwayL,Form6
-Dundee United,5,1,1,3,5,10,0,1,1,1,0,2,-DLLWL
-Rangers,4,2,1,1,5,4,0,0,1,2,1,0,--DLWW
-Aberdeen,4,1,0,3,2,7,1,0,1,0,0,2,--WLLL
-Hearts,4,3,0,1,10,4,2,0,0,1,0,1,--LWWW
-Falkirk,4,0,1,3,2,6,0,0,2,0,1,1,--LDLL
-St. Mirren,4,3,1,0,7,3,1,1,0,2,0,0,--WWDW
-St. Johnstone,4,1,1,2,6,7,1,0,0,0,1,2,--WLLD
-Kilmarnock,4,0,0,4,4,14,0,0,3,0,0,1,--LLLL
-Hibernian,4,2,0,2,6,7,0,0,2,2,0,0,--LWWL
-Motherwell,4,2,2,0,8,4,1,1,0,1,1,0,--WDDW
-Celtic,4,4,0,0,11,2,3,0,0,1,0,0,--WWWW
-Dundee,5,2,1,2,6,4,1,1,1,1,0,1,-LWWLD
+Dundee United,6,1,2,3,6,11,0,2,1,1,0,2,DLLWLD
+Rangers,5,3,1,1,6,4,1,0,1,2,1,0,-DLWWW
+Falkirk,5,0,2,3,3,7,0,0,2,0,2,1,-LDLLD
+St. Mirren,5,3,1,1,8,5,1,1,1,2,0,0,-WWDWL
+Aberdeen,5,1,1,3,2,7,1,1,1,0,0,2,-WLLLD
+Hearts,5,4,0,1,12,5,3,0,0,1,0,1,-LWWWW
+St. Johnstone,5,2,1,2,8,8,2,0,0,0,1,2,-WLLDW
+Kilmarnock,5,0,1,4,4,14,0,0,3,0,1,1,-LLLLD
+Hibernian,5,2,0,3,7,9,0,0,2,2,0,1,-LWWLL
+Motherwell,5,2,2,1,8,5,1,1,0,1,1,1,-WDDWL
+Celtic,5,5,0,0,13,3,3,0,0,2,0,0,-WWWWW
+Dundee,6,2,1,3,7,6,1,1,1,1,0,2,LWWLDL
