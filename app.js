@@ -52,12 +52,9 @@ function impliedPct(decimalOdds) {
 }
 
 // Underdog value flag: only fires when (a) the market already prices this
-// outcome as a genuine underdog (decimal odds >= UNDERDOG_ODDS_THRESHOLD,
-// i.e. market implied probability below ~40%), AND (b) the model rates
-// that same outcome meaningfully more likely than the market does. This is
-// the only signal a professional would actually consider staking on —
-// a model liking an already-short favorite a little more than the market
-// isn't an edge, it's noise.
+// outcome as a genuine underdog (decimal odds >= UNDERDOG_ODDS_THRESHOLD),
+// AND (b) the model rates that same outcome meaningfully more likely than
+// the market does.
 const UNDERDOG_ODDS_THRESHOLD = 2.5;
 const MIN_EDGE_PCT = 6;
 
@@ -67,7 +64,7 @@ function underdogEdge(oddsVal, modelPct, marketPct) {
   return modelPct - marketPct >= MIN_EDGE_PCT;
 }
 
-function renderCell(oddsVal, modelPct) {
+function renderOddsCell(oddsVal, modelPct) {
   const implied = impliedPct(oddsVal);
   const oddsStr = oddsVal ? oddsVal.toFixed(2) : "—";
   const impliedStr = implied != null ? `${implied}%` : "—";
@@ -75,6 +72,13 @@ function renderCell(oddsVal, modelPct) {
   const cls = hasEdge ? "value-underdog" : "";
   const flag = hasEdge ? ' <span class="value-tag">VALUE</span>' : "";
   return `<span class="odds-val">${oddsStr}</span><span class="implied ${cls}">${impliedStr}${flag}</span>`;
+}
+
+// Model Home/Draw/Away cell: percentage on top, that category's own top
+// scoreline + probability underneath (no "top:" label — the column header
+// already makes it clear what the sub-line is).
+function renderModelCell(pct, subScore, subProb) {
+  return `<span class="model-pct">${pct}%</span><span class="sub-score">${subScore} (${subProb}%)</span>`;
 }
 
 async function main() {
@@ -112,12 +116,13 @@ async function main() {
         <td>${fx.date}</td>
         <td class="fixture-cell"><strong>${fx.home}</strong> v ${fx.away}</td>
         <td class="score-cell">${pred ? pred.predictedScore : "—"}<span class="prob">${pred ? pred.predictedScoreProb + "%" : ""}</span></td>
-        <td>${pred ? pred.homeWinPct + "%" : "—"}</td>
-        <td>${pred ? pred.drawPct + "%" : "—"}</td>
-        <td>${pred ? pred.awayWinPct + "%" : "—"}</td>
-        <td>${renderCell(match && match.homeOdds, pred && pred.homeWinPct)}</td>
-        <td>${renderCell(match && match.drawOdds, pred && pred.drawPct)}</td>
-        <td>${renderCell(match && match.awayOdds, pred && pred.awayWinPct)}</td>
+        <td class="score-cell">${pred ? pred.favScore : "—"}<span class="prob">${pred ? pred.favScoreProb + "%" : ""}</span></td>
+        <td>${pred ? renderModelCell(pred.homeWinPct, pred.topHomeScore, pred.topHomeScoreProb) : "—"}</td>
+        <td>${pred ? renderModelCell(pred.drawPct, pred.topDrawScore, pred.topDrawScoreProb) : "—"}</td>
+        <td>${pred ? renderModelCell(pred.awayWinPct, pred.topAwayScore, pred.topAwayScoreProb) : "—"}</td>
+        <td>${renderOddsCell(match && match.homeOdds, pred && pred.homeWinPct)}</td>
+        <td>${renderOddsCell(match && match.drawOdds, pred && pred.drawPct)}</td>
+        <td>${renderOddsCell(match && match.awayOdds, pred && pred.awayWinPct)}</td>
         <td>${match ? match.bookmaker : "—"}</td>
       `;
       tbody.appendChild(tr);

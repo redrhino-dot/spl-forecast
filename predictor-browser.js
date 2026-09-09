@@ -110,6 +110,21 @@ const SPFL = (() => {
     return n <= 1 ? 1 : n * factorial(n - 1);
   }
 
+  function round(v, dp = 1) {
+    const f = Math.pow(10, dp);
+    return Math.round(v * f) / f;
+  }
+
+  /**
+   * Returns both:
+   *  - the unconditional top scoreline across the whole grid ("probability")
+   *  - the top scoreline within whichever of Home/Draw/Away the model
+   *    actually favors ("fav result") — these two often differ, because a
+   *    draw's probability mass concentrates on 1-2 cells (0-0, 1-1) while a
+   *    win's mass is spread thinly across a dozen different scorelines. The
+   *    unconditional top cell can therefore be a draw even when Home or
+   *    Away is the clearly favored outcome overall.
+   */
   function predictMatch(homeTeam, awayTeam, ratings, maxGoals = 6) {
     const h = ratings.find((r) => r.team === homeTeam);
     const a = ratings.find((r) => r.team === awayTeam);
@@ -119,40 +134,64 @@ const SPFL = (() => {
     const lambdaAway = (a.leagueAvgGoals * a.attackStrength * h.defenseWeakness * a.formMultiplier) / Math.sqrt(h.homeAdvRating);
 
     let total = 0;
-    const matrix = [];
+    const cells = [];
     for (let hg = 0; hg <= maxGoals; hg++) {
-      const row = [];
       for (let ag = 0; ag <= maxGoals; ag++) {
         const p = poissonPmf(hg, lambdaHome) * poissonPmf(ag, lambdaAway);
-        row.push(p);
+        cells.push({ hg, ag, p });
         total += p;
       }
-      matrix.push(row);
     }
+    cells.forEach((c) => (c.p = c.p / total));
 
-    let homeWin = 0, draw = 0, awayWin = 0, best = { hg: 0, ag: 0, p: -1 };
-    for (let hg = 0; hg <= maxGoals; hg++) {
-      for (let ag = 0; ag <= maxGoals; ag++) {
-        const p = matrix[hg][ag] / total;
-        if (hg > ag) homeWin += p;
-        else if (hg === ag) draw += p;
-        else awayWin += p;
-        if (p > best.p) best = { hg, ag, p };
-      }
-    }
+    const homeCells = cells.filter((c) => c.hg > c.ag);
+    const drawCells = cells.filter((c) => c.hg === c.ag);
+    const awayCells = cells.filter((c) => c.hg < c.ag);
+
+    const sumP = (arr) => arr.reduce((s, c) => s + c.p, 0);
+    const topCell = (arr) => arr.reduce((best, c) => (c.p > best.p ? c : best), arr[0]);
+
+    const homeWinPct = sumP(homeCells);
+    const drawPct = sumP(drawCells);
+    const awayWinPct = sumP(awayCells);
+
+    const topHome = topCell(homeCells);
+    const topDraw = topCell(drawCells);
+    const topAway = topCell(awayCells);
+    const overallBest = topCell(cells);
+
+    const categories = [
+      { name: "Home", pct: homeWinPct, top: topHome },
+      { name: "Draw", pct: drawPct, top: topDraw },
+      { name: "Away", pct: awayWinPct, top: topAway },
+    ];
+    const favCategory = categories.reduce((best, c) => (c.pct > best.pct ? c : best), categories[0]);
+
+    const fmt = (c) => `${c.hg}-${c.ag}`;
 
     return {
-      homeWinPct: round(homeWin * 100),
-      drawPct: round(draw * 100),
-      awayWinPct: round(awayWin * 100),
-      predictedScore: `${best.hg}-${best.ag}`,
-      predictedScoreProb: round(best.p * 100),
-    };
-  }
+      homeWinPct: round(homeWinPct * 100),
+      drawPct: round(drawPct * 100),
+      awayWinPct: round(awayWinPct * 100),
 
-  function round(v, dp = 1) {
-    const f = Math.pow(10, dp);
-    return Math.round(v * f) / f;
+      // Unconditional single most-likely cell across the whole grid.
+      predictedScore: fmt(overallBest),
+      predictedScoreProb: round(overallBest.p * 100),
+
+      // Top scoreline within whichever category the model favors overall.
+      favScore: fmt(favCategory.top),
+      favScoreProb: round(favCategory.top.p * 100),
+      favCategory: favCategory.name,
+
+      // Top scoreline within each individual category, for the sub-line
+      // shown under each Model Home/Draw/Away percentage.
+      topHomeScore: fmt(topHome),
+      topHomeScoreProb: round(topHome.p * 100),
+      topDrawScore: fmt(topDraw),
+      topDrawScoreProb: round(topDraw.p * 100),
+      topAwayScore: fmt(topAway),
+      topAwayScoreProb: round(topAway.p * 100),
+    };
   }
 
   return { parseCsv, loadTeamStats, loadFixtures, buildRatings, predictMatch };
