@@ -3,54 +3,54 @@
     "home": "Falkirk F.C.",
     "away": "Dundee FC",
     "commenceTime": "2026-10-10T14:00:00Z",
-    "homeOdds": 2.03,
-    "drawOdds": 3.43,
-    "awayOdds": 3.29,
-    "bookmaker": "Average (9 books)"
+    "homeOdds": 2.02,
+    "drawOdds": 3.46,
+    "awayOdds": 3.31,
+    "bookmaker": "Average (13 books)"
   },
   {
     "home": "Dundee United",
     "away": "Hibernian",
     "commenceTime": "2026-10-10T14:00:00Z",
-    "homeOdds": 2.59,
+    "homeOdds": 2.6,
     "drawOdds": 3.52,
-    "awayOdds": 2.38,
-    "bookmaker": "Average (9 books)"
+    "awayOdds": 2.39,
+    "bookmaker": "Average (13 books)"
   },
   {
     "home": "Hearts",
     "away": "St Mirren",
     "commenceTime": "2026-10-10T14:00:00Z",
-    "homeOdds": 1.44,
-    "drawOdds": 4.58,
-    "awayOdds": 5.93,
-    "bookmaker": "Average (9 books)"
+    "homeOdds": 1.43,
+    "drawOdds": 4.62,
+    "awayOdds": 6.07,
+    "bookmaker": "Average (13 books)"
   },
   {
     "home": "Rangers",
     "away": "Kilmarnock",
     "commenceTime": "2026-10-10T14:00:00Z",
-    "homeOdds": 1.15,
-    "drawOdds": 7.58,
-    "awayOdds": 14,
-    "bookmaker": "Average (9 books)"
+    "homeOdds": 1.14,
+    "drawOdds": 7.75,
+    "awayOdds": 14.58,
+    "bookmaker": "Average (13 books)"
   },
   {
     "home": "Motherwell",
     "away": "Celtic",
     "commenceTime": "2026-10-11T11:00:00Z",
-    "homeOdds": 4.6,
-    "drawOdds": 4.33,
-    "awayOdds": 1.57,
-    "bookmaker": "Average (9 books)"
+    "homeOdds": 4.71,
+    "drawOdds": 4.32,
+    "awayOdds": 1.56,
+    "bookmaker": "Average (13 books)"
   },
   {
     "home": "Aberdeen",
     "away": "St Johnstone",
     "commenceTime": "2026-10-11T13:00:00Z",
-    "homeOdds": 2.14,
-    "drawOdds": 3.3,
-    "awayOdds": 3.15,
-    "bookmaker": "Average (3 books)"
+    "homeOdds": 2.11,
+    "drawOdds": 3.34,
+    "awayOdds": 3.21,
+    "bookmaker": "Average (7 books)"
   }
 ]
