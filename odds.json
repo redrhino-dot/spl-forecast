@@ -3,54 +3,54 @@
     "home": "Aberdeen",
     "away": "St Mirren",
     "commenceTime": "2026-10-17T14:00:00Z",
-    "homeOdds": 1.85,
-    "drawOdds": 3.62,
+    "homeOdds": 1.86,
+    "drawOdds": 3.64,
     "awayOdds": 3.93,
-    "bookmaker": "Average (18 books)"
+    "bookmaker": "Average (19 books)"
   },
   {
     "home": "St Johnstone",
     "away": "Dundee United",
     "commenceTime": "2026-10-17T14:00:00Z",
-    "homeOdds": 2.55,
-    "drawOdds": 3.46,
-    "awayOdds": 2.53,
-    "bookmaker": "Average (17 books)"
+    "homeOdds": 2.57,
+    "drawOdds": 3.48,
+    "awayOdds": 2.52,
+    "bookmaker": "Average (18 books)"
   },
   {
     "home": "Hibernian",
     "away": "Falkirk F.C.",
     "commenceTime": "2026-10-17T14:00:00Z",
-    "homeOdds": 1.64,
-    "drawOdds": 3.87,
-    "awayOdds": 4.75,
-    "bookmaker": "Average (18 books)"
+    "homeOdds": 1.65,
+    "drawOdds": 3.91,
+    "awayOdds": 4.79,
+    "bookmaker": "Average (19 books)"
   },
   {
     "home": "Kilmarnock",
     "away": "Motherwell",
     "commenceTime": "2026-10-17T14:00:00Z",
-    "homeOdds": 3.24,
-    "drawOdds": 3.64,
-    "awayOdds": 2.04,
-    "bookmaker": "Average (18 books)"
+    "homeOdds": 3.17,
+    "drawOdds": 3.59,
+    "awayOdds": 2.09,
+    "bookmaker": "Average (19 books)"
   },
   {
     "home": "Dundee FC",
     "away": "Rangers",
     "commenceTime": "2026-10-17T19:00:00Z",
-    "homeOdds": 7.22,
-    "drawOdds": 4.94,
-    "awayOdds": 1.37,
-    "bookmaker": "Average (18 books)"
+    "homeOdds": 7.23,
+    "drawOdds": 4.91,
+    "awayOdds": 1.38,
+    "bookmaker": "Average (19 books)"
   },
   {
     "home": "Celtic",
     "away": "Hearts",
     "commenceTime": "2026-10-18T14:00:00Z",
-    "homeOdds": 1.57,
-    "drawOdds": 4.35,
-    "awayOdds": 4.86,
-    "bookmaker": "Average (17 books)"
+    "homeOdds": 1.59,
+    "drawOdds": 4.32,
+    "awayOdds": 4.77,
+    "bookmaker": "Average (19 books)"
   }
 ]
