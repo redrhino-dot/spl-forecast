@@ -4,7 +4,7 @@
     "away": "Aberdeen",
     "commenceTime": "2026-10-24T14:00:00Z",
     "homeOdds": 2.14,
-    "drawOdds": 3.44,
+    "drawOdds": 3.47,
     "awayOdds": 3.12,
     "bookmaker": "Average (18 books)"
   },
@@ -12,10 +12,10 @@
     "home": "St Mirren",
     "away": "Dundee FC",
     "commenceTime": "2026-10-24T14:00:00Z",
-    "homeOdds": 2.16,
-    "drawOdds": 3.6,
-    "awayOdds": 2.99,
-    "bookmaker": "Average (19 books)"
+    "homeOdds": 2.17,
+    "drawOdds": 3.61,
+    "awayOdds": 3.01,
+    "bookmaker": "Average (18 books)"
   },
   {
     "home": "Falkirk F.C.",
@@ -31,27 +31,27 @@
     "away": "St Johnstone",
     "commenceTime": "2026-10-24T14:00:00Z",
     "homeOdds": 1.22,
-    "drawOdds": 6.02,
-    "awayOdds": 11.31,
+    "drawOdds": 6.14,
+    "awayOdds": 11.44,
     "bookmaker": "Average (18 books)"
   },
   {
     "home": "Hibernian",
     "away": "Celtic",
     "commenceTime": "2026-10-25T12:00:00Z",
-    "homeOdds": 4.45,
-    "drawOdds": 4,
-    "awayOdds": 1.66,
-    "bookmaker": "Average (18 books)"
+    "homeOdds": 4.47,
+    "drawOdds": 4.1,
+    "awayOdds": 1.65,
+    "bookmaker": "Average (19 books)"
   },
   {
     "home": "Motherwell",
     "away": "Hearts",
     "commenceTime": "2026-10-25T14:00:00Z",
-    "homeOdds": 2.99,
-    "drawOdds": 3.53,
+    "homeOdds": 3,
+    "drawOdds": 3.56,
     "awayOdds": 2.15,
-    "bookmaker": "Average (18 books)"
+    "bookmaker": "Average (19 books)"
   },
   {
     "home": "Aberdeen",
@@ -66,9 +66,9 @@
     "home": "Celtic",
     "away": "Dundee United",
     "commenceTime": "2026-10-28T19:45:00Z",
-    "homeOdds": 1.26,
-    "drawOdds": 5.14,
-    "awayOdds": 8.33,
+    "homeOdds": 1.25,
+    "drawOdds": 5.25,
+    "awayOdds": 8.58,
     "bookmaker": "Average (16 books)"
   },
   {
@@ -84,9 +84,9 @@
     "home": "St Mirren",
     "away": "Hibernian",
     "commenceTime": "2026-10-28T19:45:00Z",
-    "homeOdds": 3.22,
-    "drawOdds": 3.41,
-    "awayOdds": 1.91,
+    "homeOdds": 3.21,
+    "drawOdds": 3.39,
+    "awayOdds": 1.92,
     "bookmaker": "Average (16 books)"
   },
   {
