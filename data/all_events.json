@@ -3030,11 +3030,11 @@
     "strDescriptionEN": "",
     "strHomeTeam": "Hibernian",
     "strAwayTeam": "Celtic",
-    "intHomeScore": null,
+    "intHomeScore": "1",
     "intHomeScoreExtra": null,
     "intAwayScoreExtra": null,
     "intRound": "10",
-    "intAwayScore": null,
+    "intAwayScore": "2",
     "intSpectators": null,
     "strOfficial": "",
     "strWeather": "",
@@ -3063,9 +3063,9 @@
     "strMap": null,
     "strTweet1": "",
     "strVideo": "",
-    "strStatus": "NS",
+    "strStatus": "FT",
     "strPostponed": "no",
-    "strLocked": "unlocked"
+    "strLocked": "locked"
   },
   {
     "idEvent": "2494466",
@@ -3082,11 +3082,11 @@
     "strDescriptionEN": "",
     "strHomeTeam": "Motherwell",
     "strAwayTeam": "Heart of Midlothian",
-    "intHomeScore": null,
+    "intHomeScore": "0",
     "intHomeScoreExtra": null,
     "intAwayScoreExtra": null,
     "intRound": "10",
-    "intAwayScore": null,
+    "intAwayScore": "2",
     "intSpectators": null,
     "strOfficial": "",
     "strWeather": "",
@@ -3115,7 +3115,7 @@
     "strMap": null,
     "strTweet1": "",
     "strVideo": "",
-    "strStatus": "NS",
+    "strStatus": "FT",
     "strPostponed": "no",
     "strLocked": "unlocked"
   }
