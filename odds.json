@@ -3,63 +3,63 @@
     "home": "Kilmarnock",
     "away": "Aberdeen",
     "commenceTime": "2026-11-21T15:00:00Z",
-    "homeOdds": 2.57,
+    "homeOdds": 2.58,
     "drawOdds": 3.4,
     "awayOdds": 2.44,
-    "bookmaker": "Average (10 books)"
+    "bookmaker": "Average (15 books)"
   },
   {
     "home": "Celtic",
     "away": "St Mirren",
     "commenceTime": "2026-11-21T15:00:00Z",
     "homeOdds": 1.16,
-    "drawOdds": 7.26,
-    "awayOdds": 11.91,
-    "bookmaker": "Average (11 books)"
+    "drawOdds": 7.32,
+    "awayOdds": 11.28,
+    "bookmaker": "Average (16 books)"
   },
   {
     "home": "Hibernian",
     "away": "Dundee United",
     "commenceTime": "2026-11-21T15:00:00Z",
-    "homeOdds": 1.78,
-    "drawOdds": 3.49,
-    "awayOdds": 3.32,
-    "bookmaker": "Average (11 books)"
+    "homeOdds": 1.84,
+    "drawOdds": 3.55,
+    "awayOdds": 3.45,
+    "bookmaker": "Average (16 books)"
   },
   {
     "home": "Falkirk F.C.",
     "away": "St Johnstone",
     "commenceTime": "2026-11-21T15:00:00Z",
-    "homeOdds": 1.87,
-    "drawOdds": 3.51,
-    "awayOdds": 3.66,
-    "bookmaker": "Average (10 books)"
+    "homeOdds": 1.85,
+    "drawOdds": 3.53,
+    "awayOdds": 3.71,
+    "bookmaker": "Average (15 books)"
   },
   {
     "home": "Dundee FC",
     "away": "Hearts",
     "commenceTime": "2026-11-21T17:45:00Z",
-    "homeOdds": 3.41,
-    "drawOdds": 3.69,
+    "homeOdds": 3.43,
+    "drawOdds": 3.68,
     "awayOdds": 1.87,
-    "bookmaker": "Average (11 books)"
+    "bookmaker": "Average (16 books)"
   },
   {
     "home": "Motherwell",
     "away": "Rangers",
     "commenceTime": "2026-11-21T20:00:00Z",
-    "homeOdds": 4.83,
-    "drawOdds": 4.32,
+    "homeOdds": 4.94,
+    "drawOdds": 4.28,
     "awayOdds": 1.52,
-    "bookmaker": "Average (11 books)"
+    "bookmaker": "Average (16 books)"
   },
   {
     "home": "Rangers",
     "away": "Aberdeen",
     "commenceTime": "2026-11-24T20:00:00Z",
-    "homeOdds": 1.25,
-    "drawOdds": 5.44,
-    "awayOdds": 8.43,
-    "bookmaker": "Average (7 books)"
+    "homeOdds": 1.23,
+    "drawOdds": 5.38,
+    "awayOdds": 8.61,
+    "bookmaker": "Average (8 books)"
   }
 ]
