@@ -4,62 +4,62 @@
     "away": "Aberdeen",
     "commenceTime": "2026-11-21T15:00:00Z",
     "homeOdds": 2.58,
-    "drawOdds": 3.41,
+    "drawOdds": 3.4,
     "awayOdds": 2.43,
-    "bookmaker": "Average (14 books)"
+    "bookmaker": "Average (15 books)"
   },
   {
     "home": "Celtic",
     "away": "St Mirren",
     "commenceTime": "2026-11-21T15:00:00Z",
     "homeOdds": 1.16,
-    "drawOdds": 7.15,
-    "awayOdds": 11.23,
-    "bookmaker": "Average (15 books)"
+    "drawOdds": 7.52,
+    "awayOdds": 11.97,
+    "bookmaker": "Average (16 books)"
   },
   {
     "home": "Hibernian",
     "away": "Dundee United",
     "commenceTime": "2026-11-21T15:00:00Z",
-    "homeOdds": 1.85,
-    "drawOdds": 3.67,
-    "awayOdds": 3.57,
-    "bookmaker": "Average (15 books)"
+    "homeOdds": 1.81,
+    "drawOdds": 3.53,
+    "awayOdds": 3.41,
+    "bookmaker": "Average (16 books)"
   },
   {
     "home": "Falkirk F.C.",
     "away": "St Johnstone",
     "commenceTime": "2026-11-21T15:00:00Z",
     "homeOdds": 1.85,
-    "drawOdds": 3.54,
-    "awayOdds": 3.69,
-    "bookmaker": "Average (14 books)"
+    "drawOdds": 3.53,
+    "awayOdds": 3.7,
+    "bookmaker": "Average (15 books)"
   },
   {
     "home": "Dundee FC",
     "away": "Hearts",
     "commenceTime": "2026-11-21T17:45:00Z",
-    "homeOdds": 3.42,
-    "drawOdds": 3.69,
+    "homeOdds": 3.4,
+    "drawOdds": 3.67,
     "awayOdds": 1.87,
-    "bookmaker": "Average (15 books)"
+    "bookmaker": "Average (17 books)"
   },
   {
     "home": "Motherwell",
     "away": "Rangers",
     "commenceTime": "2026-11-21T20:00:00Z",
-    "homeOdds": 4.94,
-    "drawOdds": 4.29,
+    "homeOdds": 4.92,
+    "drawOdds": 4.28,
     "awayOdds": 1.52,
-    "bookmaker": "Average (15 books)"
+    "bookmaker": "Average (17 books)"
   },
   {
     "home": "Rangers",
     "away": "Aberdeen",
     "commenceTime": "2026-11-24T20:00:00Z",
-    "homeOdds": 1.24,
-    "drawOdds": 5.66,
-    "awayOdds": 9.39,
+    "homeOdds": 1.22,
+    "drawOdds": 5.9,
+    "awayOdds": 9.89,
     "bookmaker": "Average (8 books)"
   }
 ]
