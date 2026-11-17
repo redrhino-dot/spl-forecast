@@ -4,7 +4,7 @@
     "away": "Aberdeen",
     "commenceTime": "2026-11-21T15:00:00Z",
     "homeOdds": 2.58,
-    "drawOdds": 3.44,
+    "drawOdds": 3.45,
     "awayOdds": 2.43,
     "bookmaker": "Average (19 books)"
   },
@@ -13,8 +13,8 @@
     "away": "St Mirren",
     "commenceTime": "2026-11-21T15:00:00Z",
     "homeOdds": 1.16,
-    "drawOdds": 7.63,
-    "awayOdds": 11.84,
+    "drawOdds": 7.6,
+    "awayOdds": 12,
     "bookmaker": "Average (19 books)"
   },
   {
@@ -22,7 +22,7 @@
     "away": "Dundee United",
     "commenceTime": "2026-11-21T15:00:00Z",
     "homeOdds": 1.87,
-    "drawOdds": 3.73,
+    "drawOdds": 3.74,
     "awayOdds": 3.54,
     "bookmaker": "Average (19 books)"
   },
@@ -30,17 +30,17 @@
     "home": "Falkirk F.C.",
     "away": "St Johnstone",
     "commenceTime": "2026-11-21T15:00:00Z",
-    "homeOdds": 1.85,
-    "drawOdds": 3.57,
-    "awayOdds": 3.73,
+    "homeOdds": 1.84,
+    "drawOdds": 3.58,
+    "awayOdds": 3.74,
     "bookmaker": "Average (19 books)"
   },
   {
     "home": "Dundee FC",
     "away": "Hearts",
     "commenceTime": "2026-11-21T17:45:00Z",
-    "homeOdds": 3.38,
-    "drawOdds": 3.71,
+    "homeOdds": 3.39,
+    "drawOdds": 3.7,
     "awayOdds": 1.92,
     "bookmaker": "Average (19 books)"
   },
@@ -48,18 +48,27 @@
     "home": "Motherwell",
     "away": "Rangers",
     "commenceTime": "2026-11-21T20:00:00Z",
-    "homeOdds": 4.94,
-    "drawOdds": 4.28,
+    "homeOdds": 4.99,
+    "drawOdds": 4.32,
     "awayOdds": 1.53,
     "bookmaker": "Average (19 books)"
+  },
+  {
+    "home": "Hibernian",
+    "away": "Dundee FC",
+    "commenceTime": "2026-11-24T19:45:00Z",
+    "homeOdds": 1.57,
+    "drawOdds": 4.15,
+    "awayOdds": 4.63,
+    "bookmaker": "Average (10 books)"
   },
   {
     "home": "Rangers",
     "away": "Aberdeen",
     "commenceTime": "2026-11-24T20:00:00Z",
-    "homeOdds": 1.22,
-    "drawOdds": 5.66,
-    "awayOdds": 10.12,
-    "bookmaker": "Average (9 books)"
+    "homeOdds": 1.21,
+    "drawOdds": 5.91,
+    "awayOdds": 10.07,
+    "bookmaker": "Average (13 books)"
   }
 ]
